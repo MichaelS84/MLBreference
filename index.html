@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+    <!-- ======= ======= ======= head ======= ======= ======= -->
+	<head>
+	    <meta charset="utf-8">
+	    <title>Sports</title>
+
+        <!-- == styles == -->
+	    <link rel="stylesheet" type="text/css" href="styles.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+			<!-- == Javascript & jQuery == -->
+			<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> -->
+	</head>
+
+    <!-- ======= ======= ======= body ======= ======= ======= -->
+	<body>
+
+<div id="headerdiv">
+	<div id="headerleft">
+		<!-- <div id="headerleft" style="float: left; width: 300px;"> -->
+		<div id="playerquestion">
+			<div id="labelbox1"><label for="question">Search by year or by result</label><br></div>
+			<input type="text" id="name" name="name" style="text-align:center;"><br>
+			<button id="redbutton" onclick="logName()";>SUBMIT</button>
+			<button id="clearbutton" onclick="return (function(){var ret = resetForm(); resetProperties();})()";>CLEAR FIELDS</button>
+	</div>
+</div>
+	<div id="headercenter"><div id="mainheader"><img id="mlblogo" src="mlb_logo.jpeg">
+The Baseball Database</img></div></div>
+	<div id="headerright" >
+		<div class="mlbteams">
+			<div id="myLinks">
+				<a href="https://www.nfl.com" target="_blank"><div id="dbacks">Arizona Diamondbacks</div></a>
+				<a href="https://www.cnn.com" target="_blank"><div id="braves">Atlanta Braves</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="orioles">Baltimore Orioles</div></a>
+				<a href="https://www.cnn.com" target="_blank"><div id="redsox">Boston Red Sox</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="cubs">Chicago Cubs</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="whitesox">Chicago White Sox</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="reds">Cincinnati Reds</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="guardians">Cleveland Guardians</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="tigers">Detroit Tigers</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="astros">Houston Astros</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="royals">Kansas City Royals</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="angels">Los Angeles Angels</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="dodgers">Los Angeles Dodgers</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="marlins">Miami Marlins</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="brewers">Milwaukee Brewers</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="twins">Minnesota Twins</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="mets">New York Mets</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="yankees">New York Yankees</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="athletics">Oakland Athletics</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="phillies">Philadelphia Phillies</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="pirates">Pittsburgh Pirates</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="cardinals">St. Louis Cardinals</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="padres">San Diego Padres</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="giants">San Francisco Giants</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="mariners">Seattle Mariners</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="rays">Tampa Bay Rays</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="rangers">Texas Rangers</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="bluejays">Toronto Blue Jays</div></a>
+				<a href="https://www.nfl.com" target="_blank"><div id="nationals">Washington Nationals</div></a>
+			</div>
+		</div>
+		<a href="javascript:void(0);" class="icon" onclick="showMenu()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+</div>
+
+<div id="teamheader">
+	<img id="yankslogo" src="yankees_logo.svg">
+</div>
+
+<div id="playername">
+	<!-- <p>WELCOME TO THE MAIN EVENT!</p> -->
+
+<!-- The div that should only show when you hover on a year -->
+<div id="infographic1">
+	<p id="infographicinner1">In 1996, the Yankees won the first of four World Series titles in a five-year span by defeating the Atlanta Braves in six games.</p>
+	<div id="graphic96">
+		<table id="infographictable">
+			<tr>
+				<th id="yankeeheader1">Manager</th>
+				<th id="yankeeheader2">Top HR Hitter</th>
+				<th id="yankeeheader3">Winningest Pitcher</th>
+			</tr>
+			<tr>
+				<td id="yankeesubhead1">Joe Torre (1st yr.)</th>
+				<td id="yankeesubhead2">Tino Martinez (44)</th>
+				<td id="yankeesubhead3">Andy Pettitte (18)</th>
+			</tr>
+		</table>
+	</div>
+	<div id="otheryears">
+		<p id="prevyear" onclick="prevYear()">Previous</p>
+		<p id="nextyear" onclick="nextYear()">Next</p>
+	</div>
+</div>
+
+<div id="infographic2">
+	<p>In 1997, the Yankees failed to win the World Series for the only time in a five-year span. They were eliminated in five games by the Cleveland Indians in the ALDS.</p>
+	<div id="graphic97">
+		<table id="infographictable">
+			<tr>
+				<th id="yankeeheader1">Manager</th>
+				<th id="yankeeheader2">Top HR Hitter</th>
+				<th id="yankeeheader3">Winningest Pitcher</th>
+			</tr>
+			<tr height>
+				<td id="yankeesubhead1">Joe Torre (2nd yr.)</th>
+				<td id="yankeesubhead2">Bernie Williams (29)</th>
+				<td id="yankeesubhead3">Andy Pettitte (21)</th>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div id="infographic3">
+	<p>In 1998, the Yankees won an AL-record 114 games en route to their second championship in three years, as they swept the San Diego Padres in four games in the World Series.</p>
+	<div id="graphic98">
+		<table id="infographictable">
+			<tr>
+				<th id="yankeeheader1">Manager</th>
+				<th id="yankeeheader2">Top HR Hitter</th>
+				<th id="yankeeheader3">Winningest Pitcher</th>
+			</tr>
+			<tr height>
+				<td id="yankeesubhead1">Joe Torre (3rd yr.)</th>
+				<td id="yankeesubhead2">Tino Martinez (28)</th>
+				<td id="yankeesubhead3">David Cone (20)</th>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div id="resulttable">
+	<table id="yankstable">
+		<tr>
+			<th>Year</th>
+			<th>Record</th>
+			<th>Result</th>
+		</tr>
+
+	<tr>
+		<!-- This is the div you hover to get the infographic -->
+		<td id="year1">1996</td>
+		<!-- <td id="yearrecord">92-70</td> -->
+		<td id="yearrecord">92-70</td>
+		<td id="wonworldseries96">Won World Series</td>
+	</tr>
+
+	<tr>
+		<td id="year2">1997</td>
+		<td id="yearrecord">96-66</td>
+		<!-- <td id="yearrecord">96</td> -->
+		<td id="alds97">Lost ALDS</td>
+	</tr>
+
+	<tr>
+		<td id="year3">1998</td>
+		<td id="yearrecord">114-48</td>
+		<td id="wonworldseries98">Won World Series</td>
+	</tr>
+
+<tr>
+	<td id="year4">1999</td>
+	<td id="yearrecord">98-64</td>
+	<!-- <td id="yearrecord">98</td> -->
+	<td id="wonworldseries99">Won World Series</td>
+</tr>
+
+<tr>
+<td id="year5" onclick="hideGraphic5()">2000</td>
+<td id="yearrecord">87-74</td>
+<!-- <td id="yearrecord">87</td> -->
+<td id="wonworldseries00">Won World Series</td>
+</tr>
+
+<tr>
+<td id="year6" onclick="hideGraphic6()">2001</td>
+<td id="yearrecord">95-65</td>
+<!-- <td id="yearrecord">95</td> -->
+<td id="ws01">Lost World Series</td>
+</tr>
+
+<tr>
+<td id="year1">2002</td>
+<td id="yearrecord">95-67</td>
+<!-- <td id="yearrecord">95</td> -->
+<td id="alds02">Lost ALDS</td>
+</tr>
+
+<tr>
+	<td id="year1">2003</td>
+	<td id="yearrecord">101-61</td>
+	<!-- <td id="yearrecord">101</td> -->
+	<td id="ws03">Lost World Series</td>
+</tr>
+
+<tr>
+	<td id="year1">2004</td>
+	<td id="yearrecord">101-61</td>
+	<!-- <td id="yearrecord">101</td> -->
+	<td id="alcs04">Lost ALCS</td>
+</tr>
+
+<tr>
+	<td id="year1">2005</td>
+	<td id="yearrecord">95-67</td>
+	<!-- <td id="yearrecord">95</td> -->
+	<td id="alds05">Lost ALDS</td>
+</tr>
+
+<tr>
+	<td id="year1">2006</td>
+	<td id="yearrecord">97-65</td>
+	<!-- <td id="yearrecord">97</td> -->
+	<td id="alds06">Lost ALDS</td>
+</tr>
+
+<tr>
+	<td id="year1">2007</td>
+	<td id="yearrecord">94-68</td>
+	<!-- <td id="yearrecord">94</td> -->
+	<td id="alds07">Lost ALDS</td>
+</tr>
+
+<tr>
+	<td id="year1">2008</td>
+	<td id="yearrecord">89-63</td>
+	<!-- <td id="yearrecord">89</td> -->
+	<td id="missed">Missed playoffs</td>
+</tr>
+
+<tr>
+	<td id="year1">2009</td>
+	<td id="yearrecord">103-59</td>
+	<!-- <td id="yearrecord">89</td> -->
+	<td id="wonworldseries09">Won World Series</td>
+</tr>
+
+	</table>
+
+</div>
+
+<div id="worldseriesgraphic">
+	<img id="worldseriesgraphic96" src="1996_World_Series_logo.svg.png">
+</div>
+
+<div id="worldseriesgraphic2">
+	<img id="dsgraphic97" src="1997_American_League_Division_Series_logo.png">
+</div>
+
+<div id="worldseriesgraphic3">
+	<img id="wsgraphic98" src="1998_World_Series_logo.svg">
+</div>
+
+</div>
+
+<div id="playerinfo">
+	<p></p>
+</div>
+
+			<script type="text/javascript" src="script.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+<!-- <- STUFF COPIED FROM SITE -> -->
+	<!-- <dl>
+  <dt>A title of the graph</dt>
+  <dd class="percentage">
+    <span class="text">
+      Data 1: 20%
+    </span>
+  </dd>
+  <dd class="percentage">
+    <span class="text">
+      Data 2: 50%
+    </span>
+  </dd>
+  <dd class="percentage">
+    <span class="text">
+      Data 3: 30%
+    </span>
+  </dd>
+</dl>
+
+<dl>
+  <dt>
+    Browser market share June 2015
+  </dt>
+  <dd class="percentage percentage-11"><span class="text">IE 11: 11.33%</span></dd>
+  <dd class="percentage percentage-49"><span class="text">Chrome: 49.77%</span></dd>
+  <dd class="percentage percentage-16"><span class="text">Firefox: 16.09%</span></dd>
+  <dd class="percentage percentage-5"><span class="text">Safari: 5.41%</span></dd>
+  <dd class="percentage percentage-2"><span class="text">Opera: 1.62%</span></dd>
+  <dd class="percentage percentage-2"><span class="text">Android 4.4: 2%</span></dd>
+</dl> -->
+<!-- <- END -> -->

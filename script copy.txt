@@ -1,0 +1,303 @@
+var yankeesHistory = ['1996', 'Won World Series', '1997', 'Lost ALDS', '1998', 'Won World Series', '1999', 'Won World Series', '2000:', 'Won World Series',
+'2001', 'Lost World Series', '2002', 'Lost ALDS', '2003:', 'Missed Playoffs*', '2004:', 'Lost ALCS'];
+
+// var hidden = document.getElementById("infographic1");
+// var hidden2 = document.getElementById("infographic2");
+// console.log(hidden);
+// console.log(hidden2);
+
+// $("name")[0].reset();
+
+function logName() {
+  console.log("Your name is __");
+  var userName = document.getElementById("name").value;
+  console.log(userName);
+}
+
+function resetForm() {
+  var formData = document.getElementById("name");
+  console.log("Hi!");
+  formData.value = '';
+  // if (formData.length > 1) {
+  // console.log(formData);
+  // formData.innerHTML = "";
+  // }
+}
+// addEventListener('submit', resetForm);
+
+//Next up: Make it so the "Hello" appears on its own and not related to a click
+function displayName() {
+  console.log("Testing");
+  var userName = document.getElementById("name").value;
+
+  if (userName.length >= 1) {
+  document.getElementById("playerinfo").innerHTML = "Hello" + " " + userName + "!" + "<br>"
+  }
+}
+
+//NEXT UP: Add a button to reset the fields, or continue clicking to fill out the colors
+    function yankeeResult() {
+    console.log("Testing");
+    var userName = document.getElementById("name").value;
+    if (userName === "Won World Series" || userName === "won world series" || userName === "WON WORLD SERIES") {
+      document.getElementById("playerinfo").innerHTML = "The result was: " + yankeesHistory[1] + "!";
+      // document.getElementById("worldseries96").style.backgroundColor = 'gold';
+      const wsbox = document.querySelectorAll(`[id^="worldseries"]`);
+      for (i = 0; i < wsbox.length; i++) {
+        wsbox[i].style.backgroundColor = 'gold';
+        wsbox.forEach(element => {
+          console.log(element.textContent);
+        });
+      }
+    } else if (userName === "ALCS" || userName === "alcs") {
+      const alcsbox = document.querySelectorAll(`[id^="alcs"]`);
+      for (i = 0; i < alcsbox.length; i++) {
+        alcsbox[i].style.backgroundColor = '#4A84B0';
+        alcsbox.forEach(element => {
+          console.log(element.textContent);
+          });
+        }
+      } else if (userName === "Lost World Series" || userName === "lost world series" || userName === "LOST WORLD SERIES") {
+        const lostwsbox = document.querySelectorAll(`[id^="ws"]`);
+        for (i = 0; i < lostwsbox.length; i++) {
+          lostwsbox[i].style.backgroundColor = '#4A84B0';
+          lostwsbox.forEach(element => {
+            console.log(element.textContent);
+          });
+        }
+    } else if (userName === "1996") {
+      document.getElementById("worldseries96").style.backgroundColor = 'gold';
+      document.getElementById("playerinfo").innerHTML = "The result was: " + yankeesHistory[1] + "!";
+    } else if (userName === "1997") {
+      document.getElementById("alds97").style.backgroundColor = 'red';
+      document.getElementById("playerinfo").innerHTML = "The result was: " + yankeesHistory[2] + "!";
+    } else if (userName === "1998") {
+      document.getElementById("worldseries98").style.backgroundColor = 'gold';
+      document.getElementById("playerinfo").innerHTML = "The result was: " + yankeesHistory[5] + "!";
+    } else if (userName === "1999") {
+      document.getElementById("worldseries99").style.backgroundColor = 'gold';
+      document.getElementById("playerinfo").innerHTML = "The result was: " + yankeesHistory[7] + "!";
+    } else if (userName === "2000") {
+      document.getElementById("worldseries00").style.backgroundColor = 'gold';
+      document.getElementById("playerinfo").innerHTML = "The result was: " + yankeesHistory[9] + "!";
+    } else if (userName === "2001") {
+      document.getElementById("ws01").style.backgroundColor = 'green';
+    } else if (userName === "2002") {
+      document.getElementById("alds02").style.backgroundColor = 'red';
+      document.getElementById("playerinfo").innerHTML = "The result was: " + yankeesHistory[2] + "!";
+    } else if (userName === "ALDS" || userName === "alds") {
+      //GOT IT! I wanted to see if I could get multiple table boxes to color in based on user input
+      document.getElementById("playerinfo").innerHTML = "The years the Yankees lost in the ALDS were: " + yankeesHistory[2] + "," + " " + yankeesHistory[12] + "!";
+      const aldsbox = document.querySelectorAll(`[id^="alds"]`);
+      for (i = 0; i < aldsbox.length; i++) {
+        aldsbox[i].style.backgroundColor = 'red';
+        aldsbox.forEach(element => {
+          console.log(element.textContent);
+        });
+      }
+      console.log(aldsbox);
+    } else if (userName === "2003") {
+      document.getElementById("missed").style.backgroundColor = 'black';
+      document.getElementById("missed").style.textDecoration = 'line-through';
+      document.getElementById("missed").style.color = 'white';
+    } else if (userName === "2004") {
+      var alcs04 = document.getElementById("alcs04");
+      alcs04.style.backgroundColor = '#4A84B0';
+    } else if (userName === "2005") {
+      var alds05 = document.getElementById("alds05");
+      alds05.style.backgroundColor = 'red';
+    }
+  }
+
+//WILL THIS FUNCTION WORK IF IT IS PULLING "Won World Series" from an array?
+  function yankeeColors() {
+    var results = document.getElementById("worldseries96").innerHTML;
+    console.log(results);
+    if (results === 'Won World Series') {
+      results = results.toUpperCase();
+      console.log(results);
+    }
+    //Why does this block only execute within another function, but not on its own?
+    //Also, how do I make it so if someone clicks a different year when the first one is up, the other one automatically disappears? Is this a function fired onload?
+    //Lastly, why does this not fire on the first round but works every time after? I.e. click twice, nothing, then it works?
+    document.getElementById("year1").addEventListener("click", hideGraphic);
+    document.getElementById("year2").addEventListener("click", hideGraphic2);
+  }
+
+// function hideGraphic() {
+//   var hidden = document.getElementById("infographic1");
+//   hidden.style.opacity = "0.2";
+// }
+
+function hideGraphic() {
+  var hidden = document.getElementById("infographic1");
+  var hidden2 = document.getElementById("infographic2");
+  console.log(hidden);
+  if (hidden.style.visibility === "hidden") {
+      hidden.style.visibility = "visible";
+      hidden2.style.visibility = "hidden";
+      // document.getElementById("infographic2").innerHTML = "";
+  } else {
+      hidden.style.visibility = "hidden";
+      hidden2.style.visibility = "hidden";
+      // document.getElementById("infographic2").innerHTML = "";
+  }
+  // document.getElementById("year1").addEventListener("click", hideGraphic);
+}
+
+function hideGraphic2() {
+  var hidden2 = document.getElementById("infographic2")
+  var hidden = document.getElementById("infographic1");
+  console.log(hidden2);
+  if (hidden2.style.visibility === "hidden") {
+      hidden2.style.visibility = "visible";
+      hidden.style.visibility = "hidden";
+      // document.getElementById("infographic1").innerHTML = "";
+  } else {
+      hidden2.style.visibility = "hidden";
+      hidden.style.visibility = "hidden";
+      // document.getElementById("infographic1").innerHTML = "";
+  }
+  // document.getElementById("year2").addEventListener("click", hideGraphic2);
+}
+
+function resetProperties() {
+  console.log("Reset Properties");
+  var yanksWsProperties = document.querySelectorAll(`[id^="worldseries"]`);
+  for (i = 0; i < yanksWsProperties.length; i++) {
+    yanksWsProperties[i].style.backgroundColor = 'inherit';
+    yanksWsProperties[i].style.textDecoration = '#none';
+    yanksWsProperties[i].style.color = 'black';
+    yanksWsProperties.forEach(element => {
+      console.log(element.textContent);
+    });
+  }
+  var yanksLostWsProperties = document.querySelectorAll(`[id^="ws"]`);
+  for (i = 0; i < yanksLostWsProperties.length; i++) {
+    yanksLostWsProperties[i].style.backgroundColor = 'inherit';
+    yanksLostWsProperties[i].style.textDecoration = '#none';
+    yanksLostWsProperties[i].style.color = 'black';
+    yanksLostWsProperties.forEach(element => {
+      console.log(element.textContent);
+    });
+  }
+  var yanksMissedProperties = document.querySelectorAll(`[id^="missed"]`);
+  for (i = 0; i < yanksMissedProperties.length; i++) {
+    yanksMissedProperties[i].style.backgroundColor = 'inherit';
+    yanksMissedProperties[i].style.textDecoration = 'none';
+    yanksMissedProperties[i].style.color = 'black';
+    yanksMissedProperties.forEach(element => {
+      console.log(element.textContent);
+    });
+  }
+  var yanksAldsProperties = document.querySelectorAll(`[id^="alds"]`);
+  for (i = 0; i < yanksAldsProperties.length; i++) {
+    yanksAldsProperties[i].style.backgroundColor = 'inherit';
+    yanksAldsProperties[i].style.textDecoration = 'none';
+    yanksAldsProperties[i].style.color = 'black';
+    yanksAldsProperties.forEach(element => {
+      console.log(element.textContent);
+    });
+  }
+  var yanksAlcsProperties = document.querySelectorAll(`[id^="alcs"]`);
+  for (i = 0; i < yanksAlcsProperties.length; i++) {
+    yanksAlcsProperties[i].style.backgroundColor = 'inherit';
+    yanksAlcsProperties[i].style.textDecoration = 'none';
+    yanksAlcsProperties[i].style.color = 'black';
+    yanksAlcsProperties.forEach(element => {
+      console.log(element.textContent);
+    });
+  }
+}
+
+//HAMBURGER MENU CODE PASTED FROM INTERNET
+const menu = document.querySelector(".menu");
+const menuItems = document.querySelectorAll(".menuItem");
+const hamburger = document.querySelector(".hamburger");
+const closeIcon = document.querySelector(".closeIcon");
+const menuIcon = document.querySelector(".menuIcon");
+
+function toggleMenu() {
+  if (menu.classList.contains("showMenu")) {
+    menu.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "block";
+  } else {
+    menu.classList.add("showMenu");
+    closeIcon.style.display = "block";
+    menuIcon.style.display = "none";
+  }
+}
+
+function showMenu() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+// function oneGraphic() {
+//   var hidden = document.getElementById("infographic1");
+//   var hidden2 = document.getElementById("infographic2");
+//   if (hidden.style.visibility === "visible") {
+//     hidden2.style.visibility === "hidden")
+//   }
+// }
+
+// addEventListener("onload", hideGraphic, hideGraphic2);
+addEventListener("click", logName);
+addEventListener("click", displayName);
+addEventListener("click", yankeeResult);
+addEventListener("click", yankeeColors);
+//This block executes a toggle, if #2 is first, it toggles on 1996, and vice versa
+// addEventListener("onload", yankeeGraphic, yankeeGraphic2)
+// addEventListener("click", hideGraphic2, hideGraphic);
+//CODE DUMP AND POTENTIAL FUNCTIONS
+
+
+// addEventListener("onload", yankeeColors);
+// addEventListener("click", hideYear);
+
+// //Need to figure out how to get it to hide on button click, not general click
+//   function hideYear() {
+//     var hidden = document.getElementById("year1")
+//     //Hides button in DIV above on click
+//     if (hidden.style.display === "none") {
+//         hidden.style.display = "inline-block";
+//     } else {
+//         hidden.style.display = "none";
+//     }
+//   }
+
+//This code works as far as pulling a piece of a div ID and using all instances
+// var aldsbox = document.querySelectorAll(`[id^="alds"]`);
+// console.log(aldsbox);
+// aldsbox[0].style.backgroundColor = 'red';
+
+
+  // $(document).ready(function() {
+  //       $('#year1').hide();
+  //       $('#inforgraphic1').hover( function() { $('#year1').toggle(); } );
+  // });
+
+
+  //   var yearWon = document.getElementById("infographic1").innerHTML;
+  //   var ws96 = document.getElementById("year1");
+  //   // yearWon.addEventListener("mouseover");
+  //   yearWon.addEventListener("mouseover") = function () {
+  //     yearWon.style.color = "purple";
+  // }
+
+// function yankeeGraphics() {
+//     const yearWon = document.getElementById("infographic1");
+//     console.log(yearWon);
+//     yearWon.addEventListener("mouseover", function yankeeGraphic() {
+//       console.log("Hello");
+//     });
+//   }
+// REMOVED FROM WHERE WE USED TO HAVE A "HELLO USERNAME!" DIV
+// else if (userName.length >= 1) {
+//   document.getElementById("playerinfo").innerHTML = "Hello" + " " + userName + "!" + "<br>"
+// }
